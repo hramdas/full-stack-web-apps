@@ -17,3 +17,32 @@
   font-size: 15px;
   border-radius: 10px;
 }
+.ListItem p {
+  text-align: left;
+}
+.ListItem img {
+  width: 40px;
+  border-radius: 50%;
+}
+.studentProfile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.studentProfile img {
+  width: 100px;
+}
+.studentProfile #studentDetails span {
+  margin: 5px;
+}
+.testListItem {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  align-items: center;
+}
+/* .testListItem p,
+b,
+Link {
+  margin-right: 15px;
+} */
