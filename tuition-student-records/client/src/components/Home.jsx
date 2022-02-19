@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react' 
+import {StudentList} from './StudentList'
 
 export const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <StudentList />
+    </div>
   )
 }
