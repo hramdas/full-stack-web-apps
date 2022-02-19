@@ -13,8 +13,13 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
-  const tests = await Test.find().lean().exec();
-  return res.status(200).send(tests);
+  const page = +req.query.page || 1;
+  const size = +req.query.size || 10;
+  const skip = (page - 1) * size;
+  const totalCount = await Test.find().count();
+  const last_page = Math.ceil(totalCount / size);
+  const tests = await Test.find();
+  return res.status(200).send({ tests, size, page, last_page });
 });
 
 module.exports = router;

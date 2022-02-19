@@ -19,9 +19,19 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
-  const students = await Student.find();
+router.get("/:id", async (req, res) => {
+  const students = await Student.findById(req.params.id);
   return res.status(200).send(students);
+});
+router.get("/", async (req, res) => {
+  const page = +req.query.page || 1;
+  const size = +req.query.size || 10;
+  const skip = (page - 1) * size;
+  const totalCount = await Student.find().count();
+  const last_page = Math.ceil(totalCount / size);
+  const students = await Student.find().limit(size).skip(skip);
+  const data = { students, page, last_page };
+  return res.status(200).send(data);
 });
 
 module.exports = router;
