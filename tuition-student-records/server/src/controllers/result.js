@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
 });
 
 // All tests of a student
-router.get("/student/:id", async (req, res) => {
+router.get("/student/:id", async (req, res, next) => {
   try {
     const page = +req.query.page || 1;
     const size = +req.query.size || 10;
@@ -35,6 +35,7 @@ router.get("/student/:id", async (req, res) => {
       .limit(size)
       .skip(skip)
       .select("test")
+      .select("marks")
       .populate("test");
     return res
       .status(200)
@@ -45,7 +46,7 @@ router.get("/student/:id", async (req, res) => {
 });
 
 //all students for a test
-router.get("/test/:id", async (req, res) => {
+router.get("/test/:id", async (req, res, next) => {
   try {
     const page = +req.query.page || 1;
     const size = +req.query.size || 10;
