@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
-import {records} from '../utils/requests'
+import {records} from '../../utils/requests'
 import { TestOfStudent } from './TestsOfStudent';
 
 export const Student = () => {
@@ -14,10 +14,10 @@ export const Student = () => {
 
   async function getStudentData(){
     let {data} = await records.get("/result/student/"+id)
+    
     setstudent(data.student)
     setresult(data)
   }
-  console.log(result)
 
   return (
   
@@ -35,12 +35,10 @@ export const Student = () => {
         }
         <hr style={{width :"100%"}} />
         <div>
-          <h2>Tests</h2>
+          <h2>Attempted tests</h2>
           {result ?  <TestOfStudent studentResults={result.results} /> :
           <p>Loading...</p>}
-         
         </div>
-        
       </div>
     
   )

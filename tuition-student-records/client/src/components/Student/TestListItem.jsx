@@ -2,14 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export const TestListItem = ({test}) => {
-    const date = test.date.split("T")[0]
+ const date = test.test.date.split("T")[0]
   return (
     <div className='testListItem'>
-      <b>{test.name}</b>
+      <Link id="link" to={"/test/"+test.test._id} ><b>{test.test.name}</b></Link>
       <p>{date}</p>
-      <b>{test.marks}</b>
-      <Link to={"/result/test/"+test._id} ><button>View</button></Link>
-      
+      <b>{test.marks}</b>      
     </div>
   )
 }

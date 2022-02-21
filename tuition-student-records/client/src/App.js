@@ -1,14 +1,16 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import { Header } from "./components/Header";
 import { Home } from "./components/Home";
-import { Student } from "./components/Student";
-import { StudentList } from "./components/StudentList";
-import { Test } from "./components/Test";
-import { TestList } from "./components/TestList";
+import { Student } from "./components/Student/Student";
+import { StudentList } from "./components/Student/StudentList";
+import { Test } from "./components/Tests/Test";
+import { TestList } from "./components/Tests/TestList";
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/student/:id" element={<Student />} />
