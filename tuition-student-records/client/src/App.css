@@ -71,3 +71,35 @@ header #nav {
 header #nav a {
   margin-right: 20px;
 }
+@media screen and (max-width: 600px) {
+  header #nav {
+    display: none;
+  }
+}
+@media screen and (min-width: 601px) {
+  header button {
+    display: none;
+  }
+}
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  z-index: 1;
+  background-color: rgb(235, 235, 235);
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  right: 5px;
+  padding: 20px;
+  font-size: 22px;
+  text-align: left;
+}
+.mobile-menu > a {
+  text-decoration: none;
+  color: navy;
+}
+@media screen and (min-width: 601px) {
+  .mobile-menu {
+    display: none;
+  }
+}
